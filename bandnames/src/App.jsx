@@ -1,0 +1,35 @@
+import { useState } from 'react';
+import { BandAdd, BandList } from './components';
+
+function App() {
+  return (
+    <div className="container">
+      
+      <div className="alert">
+        <p>
+          Service status:
+          <span className="text-success"> Online</span>
+          <span className="text-danger" > Offline</span>
+        </p>
+      </div>
+
+      <h1>BandNames</h1>
+      <hr />
+
+      <div className="row">
+        
+        <div className="col-8">
+          <BandList/>
+        </div>
+
+        <div className="col-4">
+          <BandAdd/>
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
+
+export default App
