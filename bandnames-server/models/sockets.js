@@ -12,6 +12,7 @@ class Sockets {
             
             socket.emit('current-bands', this.bandList.getBands());
         });
+        
     }
 }
 

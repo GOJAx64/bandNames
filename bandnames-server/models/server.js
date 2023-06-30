@@ -18,13 +18,13 @@ class Server {
         this.app.use( cors() );
     }
 
-    configurarSockets() {
+    socketsSettings() {
         new Sockets( this.io );
     }
 
     execute() {
         this.middlewares();
-        this.configurarSockets();
+        this.socketsSettings();
         this.server.listen( this.port, () => {
             console.log('Server running at port:', this.port );
         });
