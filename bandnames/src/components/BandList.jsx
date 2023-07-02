@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function BandList({ data }) {
+export function BandList({ data, vote, deleteBand, changeBandName }) {
     const [bands, setBands] = useState(data);
     
     useEffect(() => {
@@ -20,7 +20,7 @@ export function BandList({ data }) {
 
 
     const onLostFocus = (id, name) => {
-        console.log(id, name)
+        changeBandName(id, name);
     }
 
     const createRows = () => {
@@ -28,7 +28,10 @@ export function BandList({ data }) {
             bands.map( band => (
                 <tr key={ band.id }>
                     <td>
-                        <button className="btn btn-primary"> +1 </button>
+                        <button 
+                            className="btn btn-primary" 
+                            onClick={ () => vote(band.id) }
+                        >+1</button>
                     </td>
                     <td>
                         <input
@@ -40,8 +43,10 @@ export function BandList({ data }) {
                     </td>
                     <td><h3> { band.votes } </h3></td>
                     <td>
-                        <button className="btn btn-danger">
-                            Delete
+                        <button 
+                            className="btn btn-danger"
+                            onClick={ () => deleteBand(band.id) }
+                        >Delete
                         </button>
                     </td>
                 </tr>
